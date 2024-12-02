@@ -5,12 +5,13 @@ import './App.css'
 
 function App() {
  
+  // a variable and changeIt function and Initial useState of var
   let [count, counterF] = useState(0) 
 
-
+  
   const addCount = () => {
     if(count>=19) counterF(count = 20);
-    else counterF(count = count+1)
+    else counterF(() => count+1) 
     console.log(count)
   }
 
