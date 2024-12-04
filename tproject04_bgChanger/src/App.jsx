@@ -1,4 +1,5 @@
 import { useState } from "react"
+import ButtonComp from "../components/ButtonComp";
 
 function App() {
 const [color, setColor] = useState("grey");
@@ -8,30 +9,18 @@ const [color, setColor] = useState("grey");
      <div className = "w-full h-screen duration-200" style = {{backgroundColor: color}}>
       <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">
         <div className="bg-white gap-4 flex flex-wrap justify-center p-2 rounded-lg flex-row ">
-          <button onClick={() => setColor("red")}
-            className=" p-1 rounded-lg hover:h-0" style = {{backgroundColor:"red"}}>
-              red</button>
+          <ButtonComp bbcolor="red" funck={() =>{setColor("red")}} ></ButtonComp>
 
-              <button onClick={() => setColor("green")}
-            className=" p-1 rounded-lg hover:h-0" style = {{backgroundColor:"green"}}>
-              Green</button>
+          <ButtonComp bbcolor="green" funck={() =>{setColor("green")}} ></ButtonComp>
 
-              <button onClick={() => setColor("blue")}
-            className=" p-1 rounded-lg hover:h-0" style = {{backgroundColor:"blue"}}>
-              Blue</button>
+          <ButtonComp bbcolor="blue" funck={() =>{setColor("blue")}} ></ButtonComp>
 
-              <button onClick={() => setColor("yellow")}
-            className=" p-1 rounded-lg hover:h-0" style = {{backgroundColor:"yellow"}}>
-              Yellow</button>
+          <ButtonComp bbcolor="yellow" funck={() =>{setColor("yellow")}} ></ButtonComp>
 
-              <button onClick={() => setColor("orange")}
-            className=" p-1 rounded-lg hover:h-0" style = {{backgroundColor:"orange"}}>
-              Orange</button>
+          <ButtonComp bbcolor="orange" funck={() =>{setColor("orange")}} ></ButtonComp>
 
-              <button onClick={() => setColor("pink")}
-            className=" p-1 rounded-lg hover:h-0" style = {{backgroundColor:"pink"}}>
-              Pink</button>
-          
+          <ButtonComp bbcolor="pink" funck={() =>{setColor("pink")}} ></ButtonComp>
+
         </div> 
       </div>
 
