@@ -13,7 +13,11 @@ function App() {
   const [character, setIsCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
 
-  const passwordRef = useRef(null)
+  const passwordRef = useRef(null);
+
+  //Custom functions for
+  // 1)passwordGenerator(for generating password)
+  // 2) copyPasswordToClipboard(for copying password val to clipboard)
 
   const passwordGenerator = useCallback(() => {
     let pass = "";
@@ -26,10 +30,10 @@ function App() {
     }
 
     console.log("hello ", pass);
-    setPassword(pass)
+    setPassword(pass);
   }, [length, number, character, setPassword]);
 
-/* copyPasswordToClipboard function without useCallback
+  /* copyPasswordToClipboard function without useCallback
   const copyPasswordToClipboard = () => {
     passwordRef.current?.select()
     // passwordRef.current?.setSelectionRange(0, 5);
@@ -37,32 +41,32 @@ function App() {
   }
 */
 
-const copyPasswordToClipboard = useCallback(() => {
-  
-  passwordRef.current?.select()
-  
-  // === to show selection from x:0 to y:14 ===
-  // passwordRef.current?.setSelectionRange(0,14)
-  // window.navigator.clipboard.writeText(password.substring(0,14))
-  // === done ===
+  const copyPasswordToClipboard = useCallback(() => {
+    passwordRef.current?.select();
 
-  window.navigator.clipboard.writeText(password);
-},[password])
+    // === to show selection from x:0 to y:14 ===
+    // passwordRef.current?.setSelectionRange(0,14)
+    // window.navigator.clipboard.writeText(password.substring(0,14))
+    // === done ===
 
+    window.navigator.clipboard.writeText(password);
+  }, [password]);
+
+  //Whenever something of these(length, number, character, passwordGenerator) changes, the  passwordGenerator will be called
   useEffect(() => {
-    passwordGenerator()
-  }, [length, number, character,passwordGenerator])
+    passwordGenerator();
+  }, [length, number, character, passwordGenerator]);
 
   // passwordGenerator();
-// console.log("char: ", character," number: ", number)
+  // console.log("char: ", character," number: ", number)
   return (
     <>
       {/* <div className="flex justify-center my-9 overflow-hidden"> */}
       <div className="container">
         {/* <div className="flex-col justify-center w-auto px-10 bg-slate-600 p-4 rounded-lg text-green-500"> */}
-        
+
         <div className="passwordGenContainer">
-        <h1 className="text-gray-100">Password Generator</h1>
+          <h1 className="text-gray-100">Password Generator</h1>
 
           {/* row-1 */}
           {/* <div className=""> */}
@@ -71,54 +75,59 @@ const copyPasswordToClipboard = useCallback(() => {
             {/* <h1 className="text-gray-100">Password Generator</h1> */}
 
             <div className="subRow1">
-            <input type="text" readOnly 
-            placeholder="password"
-            size={51}
-            value={password}
-            ref={passwordRef}/>
-            
-            <button onClick={
-              () => copyPasswordToClipboard()
-              }>Copy
-            </button>
-            <button onClick={
-              () => passwordGenerator()
-            }>Change</button>
+              <input
+                type="text"
+                readOnly
+                placeholder="password"
+                size={51}
+                value={password}
+                ref={passwordRef}
+              />
+
+              <button onClick={() => copyPasswordToClipboard()}>Copy</button>
+
+              <button onClick={() => passwordGenerator()}>Change</button>
             </div>
-           
           </div>
 
           {/* row-2 */}
           {/* <div className="flex "> */}
           <div className="row2">
-            
-            <input type="range" max={50} min={8} value={length} 
-            onChange={(e) => {setLength(e.target.value)}}/>
+            <input
+              type="range"
+              max={50}
+              min={8}
+              value={length}
+              onChange={(e) => {
+                setLength(e.target.value);
+              }}
+            />
 
             <label> Length:{length}</label>
 
             <div>
-            <input id="numberBox" type="checkbox"
-            onClick={() => {
-              setIsNumberAllowed((prev) => !prev)
-            }}
-             />
-             <label htmlFor="numberBox"> Numbers</label> 
-             </div>
-             
-          
-           
-           {/* checkbox for char */}
+              <input
+                id="numberBox"
+                type="checkbox"
+                onClick={() => {
+                  setIsNumberAllowed((prev) => !prev);
+                }}
+              />
+              <label htmlFor="numberBox"> Numbers</label>
+            </div>
+
+            {/*checkbox for char */}
             <div>
-            <input id="charBox" type="checkbox"
-            onClick={() => {
-              setIsCharAllowed((prev) => !prev)
-            }}  />
-             <label htmlFor="charBox"> Characters</label>
-             </div>
-
-             </div>
-
+              <input
+                id="charBox"
+                type="checkbox"
+                onClick={() => {
+                  setIsCharAllowed((prev) => !prev);
+                }}
+              />
+              <label htmlFor="charBox"> Characters</label>
+            </div>
+          </div>
         </div>
       </div>
     </>

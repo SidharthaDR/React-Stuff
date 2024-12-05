@@ -4,6 +4,9 @@
   /* margin: 0 auto; */
   /* padding: 2rem; */
   /* background-color: rgb(30, 30, 30); */
+  background: radial-gradient(#007d40,#004d28);
+  /* background: linear-gradient(0deg,#004d28, #007d40); */
+  height: 100vh;
   color: rgb(0, 180, 0);
   font-family: 'Courier New', Courier, monospace;
   font-size: large;
@@ -80,6 +83,12 @@ button:hover{
   display: flex;
   flex-direction: column;
 
+}
+
+.subRow1 input[type="text"]{
+  cursor: crosshair;
+  /* background-color: rgb(205, 205, 205); */
+  background: linear-gradient(180deg, silver, white);
 }
 
 input[type="range"]{
