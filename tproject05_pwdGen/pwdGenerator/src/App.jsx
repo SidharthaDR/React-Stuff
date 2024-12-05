@@ -29,7 +29,7 @@ function App() {
     setPassword(pass)
   }, [length, number, character, setPassword]);
 
-/* copyPassword without useCallback
+/* copyPasswordToClipboard function without useCallback
   const copyPasswordToClipboard = () => {
     passwordRef.current?.select()
     // passwordRef.current?.setSelectionRange(0, 5);
@@ -38,6 +38,14 @@ function App() {
 */
 
 const copyPasswordToClipboard = useCallback(() => {
+  
+  passwordRef.current?.select()
+  
+  // === to show selection from x:0 to y:14 ===
+  // passwordRef.current?.setSelectionRange(0,14)
+  // window.navigator.clipboard.writeText(password.substring(0,14))
+  // === done ===
+
   window.navigator.clipboard.writeText(password);
 },[password])
 
@@ -49,7 +57,7 @@ const copyPasswordToClipboard = useCallback(() => {
 // console.log("char: ", character," number: ", number)
   return (
     <>
-      <div className="flex justify-center my-9">
+      <div className="flex justify-center my-9 overflow-hidden">
         <div className="flex-col justify-center w-auto px-10 bg-slate-600 p-4 rounded-lg text-green-500">
 
           {/* row-1 */}
