@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 :root{
-  background: #323232;
+  /* background: #323232; */
+  /* background: #008d49; */
+  background: #007d40;
+  /* box-shadow: inset 5px 5px  rgb(21, 21, 21); */
+
 }
+
+
 

@@ -4,7 +4,7 @@ import "./App.css";
 Notes:
 1. used "useCallback" for optimization -> It is a React Hook that lets you cache a function definition between re-renders.
 
-2. used "useEffect" updating when any change is done
+2. used "useEffect" updating when any change is done.
 */
 
 function App() {
@@ -60,23 +60,30 @@ const copyPasswordToClipboard = useCallback(() => {
       {/* <div className="flex justify-center my-9 overflow-hidden"> */}
       <div className="container">
         {/* <div className="flex-col justify-center w-auto px-10 bg-slate-600 p-4 rounded-lg text-green-500"> */}
+        
         <div className="passwordGenContainer">
+        <h1 className="text-gray-100">Password Generator</h1>
 
           {/* row-1 */}
           {/* <div className=""> */}
           <div className="row1">
             {/* <h1 className="text-gray-100">Password Generator</h1> */}
-            <h1 className="text-gray-100">Password Generator</h1>
-            <div>
+            {/* <h1 className="text-gray-100">Password Generator</h1> */}
+
+            <div className="subRow1">
             <input type="text" readOnly 
             placeholder="password"
+            size={51}
             value={password}
             ref={passwordRef}/>
-
+            
             <button onClick={
               () => copyPasswordToClipboard()
               }>Copy
             </button>
+            <button onClick={
+              () => passwordGenerator()
+            }>Change</button>
             </div>
            
           </div>
@@ -85,27 +92,30 @@ const copyPasswordToClipboard = useCallback(() => {
           {/* <div className="flex "> */}
           <div className="row2">
             
-            <input type="range" max={99} min={8} value={length} 
+            <input type="range" max={50} min={8} value={length} 
             onChange={(e) => {setLength(e.target.value)}}/>
 
-            <label>Length:{length}</label><br /><br />
+            <label> Length:{length}</label>
 
-            
-            <input type="checkbox"
+            <div>
+            <input id="numberBox" type="checkbox"
             onClick={() => {
               setIsNumberAllowed((prev) => !prev)
             }}
              />
-             <label>numbers</label> 
+             <label htmlFor="numberBox"> Numbers</label> 
+             </div>
+             
           
            
            {/* checkbox for char */}
-
-            <input type="checkbox" name="" id=""
+            <div>
+            <input id="charBox" type="checkbox"
             onClick={() => {
               setIsCharAllowed((prev) => !prev)
             }}  />
-             <label>characters</label>
+             <label htmlFor="charBox"> Characters</label>
+             </div>
 
              </div>
 
