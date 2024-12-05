@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-// import "./App.css";
+import "./App.css";
 /*
 Notes:
 1. used "useCallback" for optimization -> It is a React Hook that lets you cache a function definition between re-renders.
@@ -57,29 +57,38 @@ const copyPasswordToClipboard = useCallback(() => {
 // console.log("char: ", character," number: ", number)
   return (
     <>
-      <div className="flex justify-center my-9 overflow-hidden">
-        <div className="flex-col justify-center w-auto px-10 bg-slate-600 p-4 rounded-lg text-green-500">
+      {/* <div className="flex justify-center my-9 overflow-hidden"> */}
+      <div className="container">
+        {/* <div className="flex-col justify-center w-auto px-10 bg-slate-600 p-4 rounded-lg text-green-500"> */}
+        <div className="passwordGenContainer">
 
           {/* row-1 */}
-          <div className="">
+          {/* <div className=""> */}
+          <div className="row1">
+            {/* <h1 className="text-gray-100">Password Generator</h1> */}
             <h1 className="text-gray-100">Password Generator</h1>
+            <div>
             <input type="text" readOnly 
             placeholder="password"
             value={password}
             ref={passwordRef}/>
+
             <button onClick={
               () => copyPasswordToClipboard()
               }>Copy
             </button>
+            </div>
+           
           </div>
 
           {/* row-2 */}
-          <div className="flex ">
+          {/* <div className="flex "> */}
+          <div className="row2">
             
             <input type="range" max={99} min={8} value={length} 
             onChange={(e) => {setLength(e.target.value)}}/>
 
-            <label>Length: {length} </label>
+            <label>Length:{length}</label><br /><br />
 
             
             <input type="checkbox"
@@ -88,8 +97,8 @@ const copyPasswordToClipboard = useCallback(() => {
             }}
              />
              <label>numbers</label> 
-           </div>
-           <div>
+          
+           
            {/* checkbox for char */}
 
             <input type="checkbox" name="" id=""
@@ -98,7 +107,7 @@ const copyPasswordToClipboard = useCallback(() => {
             }}  />
              <label>characters</label>
 
-          </div>
+             </div>
 
         </div>
       </div>

@@ -1,8 +1,65 @@
 #root {
-  width: 200vh;
-  height: 100vh;
+  /* width: 200vh; */
+  /* height: 100vh; */
   /* margin: 0 auto; */
   /* padding: 2rem; */
-  background-color: rgb(30, 30, 30);
+  /* background-color: rgb(30, 30, 30); */
+  color: rgb(0, 180, 0);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: large;
+  font-weight: bold;
+  width: auto;
 }
 
+.container{
+  display: flex;
+  justify-content: center;
+  max-width: auto;
+
+  /* background-color: rgb(207, 91, 91); */
+
+  overflow: hidden;
+}
+
+.passwordGenContainer{
+  margin-top: 30vh;
+  padding: 2rem 3rem;
+  border-radius: 30px;
+  background-color: rgb(74, 74, 74);
+  /* box-shadow: inset 10px 1em 1em black; */
+  box-shadow: inset 10px 1em 1em rgb(21, 21, 21);
+  justify-content: center;
+  
+
+}
+
+h1{
+  font-family: 'Courier New', Courier, monospace;
+  color: bisque;
+  font-size: 32px;
+}
+
+button{
+  color: aliceblue;
+  border: none;
+  background: rgb(50, 50, 50);
+  padding: 2px;
+  border-radius: 10px;
+}
+
+button:hover{
+  background: black;
+}
+
+.row1{
+  display: flex-column;
+  padding: 10px;
+  margin: 10px;
+  align-content: space-between;
+  /* background-color: aliceblue; */
+}
+
+.row2{
+  display: flex-column;
+
+}
