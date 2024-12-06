@@ -8,7 +8,12 @@ function App() {
   const [isCharAlwd, setIsCharAwld] = useState(false);
   const [length, setLength] = useState(8);
 
-  const refVal = useRef(null)
+  //We used useState to capture and assign changes. useEffect to perform function when necessary and useCallback to improve performance in functions
+
+  //reference value for selecting password-text field element to perform select operation
+  const refVal = useRef(null) 
+  
+  //password generator function, used crypto.getRandomValues to generate cryptographically safe password
   const passwordGenerator = useCallback(() => {
     let randomBuff = new Uint32Array(1)
     let pass = ""
@@ -25,12 +30,15 @@ function App() {
     console.log(pass)
  },[length, isCharAlwd, isNumAlwd, setPassword]);
 
+
+ //fucntion for copying generated password when clicked on copy button
  const copyToClipBoard = useCallback(() => {
   refVal.current?.select()
   window.navigator.clipboard.writeText(password)
  },[password])
 
 
+ //This useEffect hook fires passwordGenerator function when any of given dependencies change
  useEffect(() => {
   passwordGenerator();
  }, [isCharAlwd,isNumAlwd,passwordGenerator,length])
@@ -41,8 +49,10 @@ function App() {
       <div className=''>
 
         <div>
+            {/* App Name */}
             <h1 className='text-4xl'>Password Generator</h1>
 
+            {/*This input feild shows generated password*/}
             <input 
             type="text"  
             readOnly
@@ -52,6 +62,7 @@ function App() {
             ref={refVal}
              />
 
+            {/*These below buttons are for copying, generating password again */}
              <button
              onClick={() => copyToClipBoard()}>Copy</button>
              <button
@@ -60,6 +71,8 @@ function App() {
 
 
         <div>
+           
+           {/* This range acts as slider for setting length */}
           <input type="range" 
           id='rangeId'
           min={8}
@@ -70,6 +83,8 @@ function App() {
           }}  />
           <label htmlFor="rangeId">Length: {length}</label>
 
+
+          {/*Checkboxes for allowing numbers, Special characters in password */}
           <input type="checkbox"  
           id="numBox"
           onClick={() => {
