@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  background: grey;
+}
+
 /* 
 og css for index
 
