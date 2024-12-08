@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 :root{
-  background: grey;
+  height: 100vh;
+  background: radial-gradient(white,grey);
 }
 
 /* 
