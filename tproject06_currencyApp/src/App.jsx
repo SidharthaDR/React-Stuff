@@ -1,8 +1,21 @@
 import { useState } from 'react'
 
 import './App.css'
-
+import { InputBox } from './components/index.js'
+import useCurrencyInfo from './hooks/useCurrencyInfo'
 function App() {
+
+  const [amount,setAmount] = useState(0)
+  const [from, setFrom] = useState("usd")
+  const [to, setTo] = useState("inr")
+  const [convertedAmount,setConvertedAmount] = useState(0)
+  
+  const currencyInfo = useCurrencyInfo(from)
+
+  const options = Object.keys(currencyInfo) 
+
+  const swap = () => {}
+
   
 
   return (
@@ -14,9 +27,15 @@ function App() {
       <div className='w-full bg-[#8852be8d]'>
         <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30"
         >
-           
+          <InputBox
+            >
+          </InputBox>
+       
+          <button>swap</button>
 
-
+        <InputBox>
+        </InputBox>
+        
         </div>
 
       </div>
