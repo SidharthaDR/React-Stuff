@@ -43,15 +43,15 @@ function App() {
 
   return (
     <>
-      <div className="p-10 place-content-center mt-30 font-mono">
+      <div className="p-10 place-content-center mt-30 font-serif">
       <div className="flex-row
       bg-gradient-to-r from-green-500 to-green-600
       rounded-lg p-10 shadow-xl border-[#19AC9A] border-4">
         {/* App Name */}
-        <h1 className="text-4xl text-white mt-5 bg-[#19AC9A] 
-        shadow-lg rounded-lg p-5 ">Password Generator</h1>
+        <h1 className="text-4xl text-woodLand mt-5 bg-[#19AC9A] 
+        shadow-lg rounded-lg p-5 ">PASSWORD GENERATOR</h1>
 
-        <div className="pb-5 mt-10">
+        <div className="pb-5 mt-10 flex-col">
           {/*This input feild shows generated password*/}
           <input
 
@@ -61,10 +61,11 @@ function App() {
             size={91}
             value={password}
             ref={refVal}
-            className="px-4 mx-5 shadow-xl"
+            className="px-4 w-[1050px] shadow-xl rounded-lg mb-3 font-mono"
 
           />
 
+          <div className="p-3">
           {/*These below buttons are for copying, generating password again */}
           <button
 
@@ -86,6 +87,8 @@ function App() {
             Randomize
 
           </button>
+
+          </div>
 
         </div>
 
@@ -133,7 +136,7 @@ function App() {
           <label htmlFor="charBox">Characters</label>
         </div>
         <div>
-          <p className="bg-[#19AC9A] text-white rounded-xl mt-12 shadow-lg p-4">
+          <p className="bg-[#19AC9A] text-woodLand rounded-xl mt-12 shadow-lg p-4">
             <ul className="flex-col">
               <li>This application generates cryptographically safe passwords</li>
               <li>Made by -SidharthDR</li>
