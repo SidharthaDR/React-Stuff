@@ -43,12 +43,13 @@ function App() {
 
   return (
     <>
-      <div className="p-10 place-content-center mt-32">
+      <div className="p-10 place-content-center mt-30 font-mono">
       <div className="flex-row
       bg-gradient-to-r from-green-500 to-green-600
-      rounded-lg p-10 shadow-lg">
+      rounded-lg p-10 shadow-xl border-[#19AC9A] border-4">
         {/* App Name */}
-        <h1 className="text-4xl text-cyan-50 mt-5">Password Generator</h1>
+        <h1 className="text-4xl text-white mt-5 bg-[#19AC9A] 
+        shadow-lg rounded-lg p-5 ">Password Generator</h1>
 
         <div className="pb-5 mt-10">
           {/*This input feild shows generated password*/}
@@ -60,14 +61,14 @@ function App() {
             size={91}
             value={password}
             ref={refVal}
-            className="px-4 mx-5"
+            className="px-4 mx-5 shadow-xl"
 
           />
 
           {/*These below buttons are for copying, generating password again */}
           <button
 
-            className="mx-2 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" 
+            className="mx-2 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 shadow-xl" 
 
             onClick={() => copyToClipBoard()}>
               
@@ -78,7 +79,7 @@ function App() {
 
           <button 
 
-            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-4 focus:ring-gray-100"
+            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-4 focus:ring-gray-100 shadow-xl"
 
             onClick={() => passwordGenerator()}>
 
@@ -89,7 +90,8 @@ function App() {
         </div>
 
         <div className=" flex justify-center gap-5 p-5 rounded-xl
-        py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white  border border-gray-200 ">
+        py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white  border border-gray-200
+        shadow-xl">
           {/* This range acts as slider for setting length */}
           <input
             className=""
@@ -129,6 +131,14 @@ function App() {
             }}
           />
           <label htmlFor="charBox">Characters</label>
+        </div>
+        <div>
+          <p className="bg-[#19AC9A] text-white rounded-xl mt-12 shadow-lg p-4">
+            <ul className="flex-col">
+              <li>This application generates cryptographically safe passwords</li>
+              <li>Made by -SidharthDR</li>
+            </ul>
+          </p>
         </div>
       </div>
       </div>

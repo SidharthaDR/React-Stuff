@@ -4,7 +4,12 @@
 
 :root{
   height: 100vh;
-  background: radial-gradient(white,grey);
+  /* background: radial-gradient(white,grey); */
+  background: linear-gradient(0deg,#19AC9A,#226e65);
+  /* background: radial-gradient(#19AC9A,#226e65); */
+  /* background: radial-gradient(#226e65,#19AC9A); */
+  /* background: #5019AC; */
+  /* background: #19AC9A; */
 }
 
 /* 
