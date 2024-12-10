@@ -10,7 +10,26 @@
   /* background: radial-gradient(#226e65,#19AC9A); */
   /* background: #5019AC; */
   /* background: #19AC9A; */
+  
 }
+
+@layer components{
+  .borderType1 {
+    @apply border-woodLand border-2
+  }
+  .borderType1-xl {
+    @apply border-woodLand border-4
+  }
+
+  .borderType2 {
+    @apply border-seaGreen border-2
+  }
+  .borderType2-xl {
+    @apply border-seaGreen border-4
+  }
+
+}
+
 
 /* 
 og css for index

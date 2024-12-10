@@ -46,10 +46,11 @@ function App() {
       <div className="p-10 place-content-center mt-30 font-serif">
       <div className="flex-row
       bg-gradient-to-r from-green-500 to-green-600
-      rounded-lg p-10 shadow-xl border-[#19AC9A] border-4">
+      
+      rounded-lg p-10 shadow-xl borderType1-xl">
         {/* App Name */}
         <h1 className="text-4xl text-woodLand mt-5 bg-[#19AC9A] 
-        shadow-lg rounded-lg p-5 ">PASSWORD GENERATOR</h1>
+        shadow-lg rounded-lg p-5 borderType1">PASSWORD GENERATOR</h1>
 
         <div className="pb-5 mt-10 flex-col">
           {/*This input feild shows generated password*/}
@@ -61,15 +62,25 @@ function App() {
             size={91}
             value={password}
             ref={refVal}
-            className="px-4 w-[1050px] shadow-xl rounded-lg mb-3 font-mono"
+            className="px-4 w-[1040px] shadow-xl rounded-lg mb-3 font-mono borderType2 text-gray-600"
 
           />
 
           <div className="p-3">
           {/*These below buttons are for copying, generating password again */}
+          <button 
+
+            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-green-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-green-700 shadow-lg hover:shadow-xl"
+
+            onClick={() => passwordGenerator()}>
+
+            Randomize
+
+          </button>
+
           <button
 
-            className="mx-2 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 shadow-xl" 
+            className="mx-2 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 shadow-lg hover:shadow-xl" 
 
             onClick={() => copyToClipBoard()}>
               
@@ -78,23 +89,14 @@ function App() {
           </button>
 
 
-          <button 
-
-            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-4 focus:ring-gray-100 shadow-xl"
-
-            onClick={() => passwordGenerator()}>
-
-            Randomize
-
-          </button>
+          
 
           </div>
 
         </div>
 
         <div className=" flex justify-center gap-5 p-5 rounded-xl
-        py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white  border border-gray-200
-        shadow-xl">
+        py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white  borderType2 shadow-xl">
           {/* This range acts as slider for setting length */}
           <input
             className=""
@@ -136,10 +138,10 @@ function App() {
           <label htmlFor="charBox">Characters</label>
         </div>
         <div>
-          <p className="bg-[#19AC9A] text-woodLand rounded-xl mt-12 shadow-lg p-4">
-            <ul className="flex-col">
+          <p className="bg-seaGreen text-woodLand rounded-xl mt-12 shadow-lg p-4 borderType1">
+            <ul className="flex-col font-mono">
               <li>This application generates cryptographically safe passwords</li>
-              <li>Made by -SidharthDR</li>
+              <li className="">Made by -SidharthDR</li>
             </ul>
           </p>
         </div>

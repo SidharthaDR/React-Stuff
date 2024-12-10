@@ -10,6 +10,9 @@ export default {
         'woodLand': {
           DEFAULT : '#fff7df',
         },
+        'seaGreen' : {
+            DEFAULT : '#19AC9A'
+        },
       },
     },
   },
