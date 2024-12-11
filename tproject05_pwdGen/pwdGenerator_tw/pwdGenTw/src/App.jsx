@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import { useRef } from "react";
+import MoreSecureGen from "./functions/MoreSecureGen";
 
 function App() {
   const [password, setPassword] = useState("");
@@ -13,7 +14,10 @@ function App() {
   //reference value for selecting password-text field element to perform select operation
   const refVal = useRef(null);
 
+  //--------------------------------------------------------------------------
+  
   //password generator function, used crypto.getRandomValues to generate cryptographically safe password
+  /*
   const passwordGenerator = useCallback(() => {
     let randomBuff = new Uint32Array(1);
     let pass = "";
@@ -28,7 +32,18 @@ function App() {
     }
     setPassword(pass);
     console.log(pass);
-  }, [length, isCharAlwd, isNumAlwd, setPassword]);
+  }, [length, isCharAlwd, isNumAlwd, setPassword]); 
+  
+*/
+  //new function will be down 
+  //---------------------------------------------------------------------------
+
+  const passwordGenerator = useCallback(() => (
+    setPassword(MoreSecureGen(isNumAlwd,isCharAlwd,length))
+  ),
+[isNumAlwd, isCharAlwd ,length, setPassword])
+  
+
 
   //fucntion for copying generated password when clicked on copy button
   const copyToClipBoard = useCallback(() => {
@@ -39,7 +54,7 @@ function App() {
   //This useEffect hook fires passwordGenerator function when any of given dependencies change
   useEffect(() => {
     passwordGenerator();
-  }, [isCharAlwd, isNumAlwd, passwordGenerator, length]);
+}, [isCharAlwd, isNumAlwd, passwordGenerator, length]);
 
   return (
     <>
@@ -141,7 +156,7 @@ function App() {
           <p className="bg-seaGreen text-woodLand rounded-xl mt-12 shadow-lg p-4 borderType1">
             <ul className="flex-col font-mono">
               <li>This application generates cryptographically safe passwords</li>
-              <li className="">Made by -SidharthDR</li>
+              <li className="">Author: SidharthDR</li>
             </ul>
           </p>
         </div>
