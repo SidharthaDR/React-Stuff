@@ -38,7 +38,7 @@ function useCurrencyInfo(currency){
         // .then((resp) =>  setData(resp[currency]))
 
         //new using safe fetch:
-        const purl = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.jsond`
+        const purl = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json`
         const surl = `https://latest.currency-api.pages.dev/v1/currencies/${currency}.json`
 
         safeFetch(purl,surl).then((res) => setData(res[currency]))
