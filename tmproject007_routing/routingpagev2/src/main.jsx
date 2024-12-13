@@ -1,30 +1,55 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import Layout from './Layout.jsx'
-import App from './App.jsx'
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements} from 'react-router'
+import {RouterProvider, createBrowserRouter} from 'react-router'
 import Home from './Components/home/Home.jsx'
-import Contact from './Components/contact/Contact.jsx'
 import About from './Components/about/About.jsx'
 import Number from './Components/contact/Number.jsx'
 
+import PageNotFound from './Components/PageNotFound.jsx'
+import ProfilesPage from './Components/profiles/ProfilesPage.jsx'
+import ProfilePage from './Components/profiles/ProfilePage.jsx'
+import Contacts from './Components/contact/Contacts.jsx'
 
-const myRouter = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path = "/" element = {<Layout/>}>
-    <Route index element = {<Home/>}/>
-    <Route path = "contact" element = {<Contact/>}/>
-    <Route path = "about" element = {<About/>}/>
-    
-    </Route>
-  )
-)
+
+
+const myRouter = createBrowserRouter([
+{
+  path: "/",
+  element: <Home/>,
+  // errorElement: <div>Error 404</div>
+},
+
+{
+  path: "/contact",
+  element: <Contacts/>,
+},
+
+{
+  path: "/profiles",
+  element: <ProfilesPage/>,
+},
+
+{
+  path: "/profiles/:profileId",
+  element: <ProfilePage/>,
+},
+
+{
+  path: "/about",
+  element: <About/>,
+},
+
+
+{
+  path: "*",
+  element: <PageNotFound/>
+}
+
+])
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
- 
- <RouterProvider router={myRouter}/>
 
-  </StrictMode>
+  <RouterProvider router = {myRouter}/>
+
 )

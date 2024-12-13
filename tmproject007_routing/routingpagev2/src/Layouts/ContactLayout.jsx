@@ -5,8 +5,8 @@ const ContactLayout = () => {
   return (
     <div>
         <Contact/>
-        <Outlet></Outlet>
-    </div>
+        <Outlet/>
+    </div>   
   )
 }
 
