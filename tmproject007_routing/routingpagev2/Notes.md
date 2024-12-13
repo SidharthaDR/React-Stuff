@@ -40,8 +40,31 @@
       - xyz.com/something/Daef3
       - - console: id: Daef3
     
+
+- Achive parent and child root using Outlet(used for place holder of child root):
+  - in main.jsx, select any object and inside it add your children object
+  
       
       
-      
+## Recap:
+    1. first we installed react-router.
+    2. then in main.jsx we first imported "createRouterBrowser" for making our 
+    router.
+      const myRouter = createRouterBrowser([
+        {
+          path: "/",
+          element: <someElement/>,
+        },
+
+        {
+          path: "/other",
+          element: <someOtherElement/>,
+        },
+        .
+        .
+        .
+      ])
+
+      then we put this into <RouterProvider router = {myRouter}/> 
       
       
