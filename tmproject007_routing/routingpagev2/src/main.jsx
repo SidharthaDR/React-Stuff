@@ -10,6 +10,7 @@ import PageNotFound from './Components/PageNotFound.jsx'
 import ProfilesPage from './Components/profiles/ProfilesPage.jsx'
 import ProfilePage from './Components/profiles/ProfilePage.jsx'
 import Contacts from './Components/contact/Contacts.jsx'
+import Something from './Components/Something.jsx'
 
 
 
@@ -33,6 +34,14 @@ const myRouter = createBrowserRouter([
     {
       path: "/profiles/:profileId",
       element: <ProfilePage/>,
+
+      children: [
+        {
+          path: "/profiles/:profileId/something",
+          element: <Something/>
+        }
+      ]
+
     },
   ],
     

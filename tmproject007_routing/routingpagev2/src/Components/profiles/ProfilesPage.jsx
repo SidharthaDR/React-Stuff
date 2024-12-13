@@ -27,6 +27,7 @@ function ProfilesPage() {
     </div>
     
     <Outlet/>
+    
     </div>
 
 

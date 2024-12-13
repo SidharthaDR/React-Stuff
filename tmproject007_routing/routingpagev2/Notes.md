@@ -13,12 +13,13 @@
            - in ReactDOM.createRoot: replace everything unnecessary with
               <RouterProvider router = {router} />  
 
-
+## useNavigate
 - Navigate clicking on a button:
   const something = useNavigate()
     onClick= () => something("/A path")
 
-- Dynamic Paths:
+
+## Dynamic Paths:
 
   1. in path= "something/:id" -> here :id is dynamic.
 
@@ -40,7 +41,7 @@
       - xyz.com/something/Daef3
       - - console: id: Daef3
     
-
+### dynamic paths, parent and child routes
 - Achive parent and child root using Outlet(used for place holder of child root):
   - in main.jsx, select any object and inside it add your children object
   

@@ -11,7 +11,7 @@ function PageNotFound() {
             <button 
             onClick={() => navigation("/")}
             className='bg-black text-white p-3 rounded-lg hover:bg-white hover:text-black hover:shadow-lg ease-out transition-all'
-            >Go Back</button>
+            >Go Home</button>
         </div>
     </div>
     </>
