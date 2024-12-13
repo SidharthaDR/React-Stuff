@@ -3,7 +3,7 @@ function NavBar() {
   return (
     <div className="flex justify-center p-4 shadow-xl m-2">
       <ul className="flex gap-3">
-        <NavLink to = "home"
+        <NavLink to = "/"
         className= {
           ({isActive}) => ` ${isActive? "text-red-500":""} `
         }
