@@ -9,7 +9,6 @@ function LayoutOne() {
     <NavBar/>
     <Outlet/>
     <Footer/>
-    {/* <h1>My layout</h1> */}
     </>
   )
 }
