@@ -5,6 +5,7 @@ import {Home, NavBar, Footer, About, ErrorPage} from "./components/MyComponents.
 import { StrictMode } from 'react'
 import LayoutOne from './layouts/LayoutOne.jsx'
 import Something from './components/Something.jsx'
+import Github from './components/Github.jsx'
 // import ErrorPage from './components/ErrorPage.jsx'
 
 const myRouter = createBrowserRouter([
@@ -22,9 +23,16 @@ const myRouter = createBrowserRouter([
       {
         path: "about",
         element:<About/>,
-      }
+      },
+
+      {
+        path: "github",
+        element: <Github/>
+      },
     ]
   },
+
+
 
   {//Temp path for testing
     path: "/something",

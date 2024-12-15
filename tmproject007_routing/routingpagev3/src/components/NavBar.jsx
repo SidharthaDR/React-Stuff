@@ -21,6 +21,12 @@ function NavBar() {
         }
         ><li>Projects</li></NavLink>
 
+       <NavLink to="github"
+        className={
+          ({isActive}) => `${isActive? "text-red-500": ""}`
+        }
+        ><li>GitHub</li></NavLink>
+
 
       
       </ul>
