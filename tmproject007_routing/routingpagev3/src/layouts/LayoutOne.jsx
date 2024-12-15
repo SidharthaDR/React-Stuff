@@ -7,7 +7,8 @@ function LayoutOne() {
   return (
     <>
     <NavBar/>
-    <div className='flex justify-center items-end mt-10 text-[50px] font-mono'>
+    <div>
+    {/* <div className={'flex justify-center items-end mt-10 text-[50px] font-mono'}> */}
     <Outlet/>
     </div>
     <Footer/>
