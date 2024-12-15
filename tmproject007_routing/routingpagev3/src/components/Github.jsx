@@ -5,11 +5,15 @@ function Github() {
 
     const [data, setData] = useState({})
     const [name, setName] = useState("sidharthaDR")
+    // const [name, setName] = useState("sidharthaDs")
+
+    const [isFound, setIsFound] = useState(false)
 
     const my_token = "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"
 
     useEffect(() => {
         fetch('https://api.github.com/search/users?q='+`${name}`, {
+        // fetch('https://api.github.com/users/'+`${name}`, {
             headers: {Authorization: `Bearer ${my_token}`}
           })
           .then((res) => (
@@ -17,12 +21,18 @@ function Github() {
               res.json()
           )
             )
-          .then((data) => (
-            console.log("yoo",data),
-            data.items
-          ))
+          .then((data) => {
+            console.log("yoo",data.total_count)
+            if(data.total_count === 0) throw new Error("Not user found")
+                setIsFound(true)
+            return data.items
+            })
           .then((data) => setData(data[0]))
-          .catch((e) => console.error("user not found... ", e))
+          .catch((e) => {
+            console.error("user not found... ", e)
+            setIsFound(false)
+            setName("SidharthaDR")
+        })
             //sidharthads
     }, [name])
     /*
@@ -33,23 +43,6 @@ function Github() {
     1. you dont use "return" while writing inside (), last statement will be returned
     2. you use " , " to give next statement inside ()
     */
-
-//   const customFetch =(() =>  ( axios.get('https://api.github.com/search/users?q=sidharth', {
-//     'headers': {
-//       'Authorization': `token ${my_token}` 
-//     }
-//   })
-//   )
-// )
-
-    // useEffect((name) => {
-    //     fetch(`https://api.github.com/users/${name}`)
-    //     .then((res) => res.json())
-    //     .then(usrdata => {
-    //         console.log(usrdata)
-    //         setData(usrdata)
-    //     })
-    // },[name])
 
   return (
     <>
@@ -62,7 +55,10 @@ function Github() {
             <p>results: {data.total_count}</p>
             {console.log("other:", data, "????")}
             <p>Login: {data.login}</p>
+            <p>Followers: </p>
+            <p>Following: {data.following_url}</p>
             <img src={data.avatar_url} width={300} alt="" />
+            {/* <h2>Msg: </h2> */}
 
             </div>
 
