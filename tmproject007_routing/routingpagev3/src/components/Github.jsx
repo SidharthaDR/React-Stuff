@@ -5,34 +5,23 @@ function Github() {
 
     const [data, setData] = useState({})
     const [name, setName] = useState("sidharthaDR")
-    // const [name, setName] = useState("sidharthaDs")
 
-    const [isFound, setIsFound] = useState(false)
-
-    const my_token = "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"
+    const my_token = "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"
 
     useEffect(() => {
-        fetch('https://api.github.com/search/users?q='+`${name}`, {
-        // fetch('https://api.github.com/users/'+`${name}`, {
-            headers: {Authorization: `Bearer ${my_token}`}
+        fetch('https://api.github.com/users/'+`${name}`, {
+            headers: {Authorization: `coolUser ${my_token}`}
           })
           .then((res) => (
             console.log("1st: ",res),
               res.json()
           )
             )
-          .then((data) => {
-            console.log("yoo",data.total_count)
-            if(data.total_count === 0) throw new Error("Not user found")
-                setIsFound(true)
-            return data.items
-            })
-          .then((data) => setData(data[0]))
-          .catch((e) => {
-            console.error("user not found... ", e)
-            setIsFound(false)
-            setName("SidharthaDR")
-        })
+          .then((data) => (
+            console.log("yoo",data),
+            setData(data)
+          ))
+          .catch((e) => console.error("user not found... ", e))
             //sidharthads
     }, [name])
     /*
@@ -43,6 +32,23 @@ function Github() {
     1. you dont use "return" while writing inside (), last statement will be returned
     2. you use " , " to give next statement inside ()
     */
+
+//   const customFetch =(() =>  ( axios.get('https://api.github.com/search/users?q=sidharth', {
+//     'headers': {
+//       'Authorization': `token ${my_token}` 
+//     }
+//   })
+//   )
+// )
+
+    // useEffect((name) => {
+    //     fetch(`https://api.github.com/users/${name}`)
+    //     .then((res) => res.json())
+    //     .then(usrdata => {
+    //         console.log(usrdata)
+    //         setData(usrdata)
+    //     })
+    // },[name])
 
   return (
     <>
@@ -55,10 +61,9 @@ function Github() {
             <p>results: {data.total_count}</p>
             {console.log("other:", data, "????")}
             <p>Login: {data.login}</p>
-            <p>Followers: </p>
-            <p>Following: {data.following_url}</p>
+            <p>Followers: {data.followers}</p>
+            <p>Following: {data.following}</p>
             <img src={data.avatar_url} width={300} alt="" />
-            {/* <h2>Msg: </h2> */}
 
             </div>
 
