@@ -63,7 +63,8 @@ function Github() {
             <p>Login: {data.login}</p>
             <p>Followers: {data.followers}</p>
             <p>Following: {data.following}</p>
-            <img src={data.avatar_url} width={300} alt="" />
+            <img src={data.avatar_url} width={300} alt="" 
+            className='rounded-[50%]'/>
 
             </div>
 
