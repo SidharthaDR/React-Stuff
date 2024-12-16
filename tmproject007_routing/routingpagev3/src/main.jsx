@@ -6,6 +6,7 @@ import { StrictMode } from 'react'
 import LayoutOne from './layouts/LayoutOne.jsx'
 import Something from './components/Something.jsx'
 import Github from './components/Github.jsx'
+import GithubV2 from './components/GithubV2.jsx'
 // import ErrorPage from './components/ErrorPage.jsx'
 
 const myRouter = createBrowserRouter([
@@ -29,6 +30,10 @@ const myRouter = createBrowserRouter([
         path: "github",
         element: <Github/>
       },
+      {
+        path: "githubv2",
+        element: <GithubV2/>
+      }
     ]
   },
 
