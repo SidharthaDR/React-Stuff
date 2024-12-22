@@ -1,12 +1,17 @@
 
 import './App.css'
+import Login from './components/Login'
+import Profile from './components/Profile'
+import UserContextProvider from './contexts/UserContextProvider'
 
 function App() {
   return (
-    <>
-      <h1 className='bg-green-400'>Hello</h1>
-        
-    </>
+   <UserContextProvider >
+    <h1>my page</h1>
+    <Login/>
+    <Profile/>
+   </UserContextProvider>
+
   )
 }
 
